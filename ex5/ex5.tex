@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Exercise 5.\arabic{section}}
+\title{VE203 Assigment 5}
+\author{Liu Yihao 515370910207}
+\date{}
+\begin{document}
+\maketitle
+
+\section{}
+\begin{enumerate}[i)]
+\item \ 
+\begin{algorithm}
+\begin{algorithmic}[1]
+	\Require $a_0,...,a_{n-1}$, $n$ unsorted elements
+	\Ensure all the $a_i$, $0\leqslant i<n$ in increasing order
+	\For{$i \gets 1$ \textbf{to} $n-1$}
+    	\State $left \gets 0$
+    	\State $right \gets i$
+    	\While{$left < right$}
+    		\State $middle \gets [(left + right)/2]$
+    		\If{$a[i] < a[middle]$}
+    			\State $right = middle$
+			\Else    		
+    			\State $left = middle + 1$
+    		\EndIf
+    	\EndWhile
+    	\State $temp \gets a[i]$
+    	\For{$j \gets i$ \textbf{to} $l + 1$}
+    		\State $a[j] \gets a[j - 1]$
+    	\EndFor
+    	\State $a[left] \gets temp$
+    \EndFor
+\end{algorithmic}
+\end{algorithm}
+\item
+
+\end{enumerate}
+
+
+\end{document}
+

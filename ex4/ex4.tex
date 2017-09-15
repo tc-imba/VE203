@@ -1,0 +1,208 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Exercise 4.\arabic{section}}
+\title{VE203 Assigment 4}
+\author{Liu Yihao 515370910207}
+\date{}
+\begin{document}
+\maketitle
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$247=13\times19$$
+$$3\times13-2\times19=1$$
+\item
+$$10^2\equiv3^2\ \rm{mod}\ 13$$
+$$10^{100}\equiv3^{100}\ \rm{mod}\ 13$$
+$$10^{100}\equiv3\cdot27^{33}\ \rm{mod}\ 13$$
+$$27^{33}\equiv1^{33}\ \rm{mod}\ 13$$
+$$10^{100}\equiv3\ \rm{mod}\ 13$$
+\\
+$$10^2\equiv9^2\ \rm{mod}\ 19$$
+$$10^{100}\equiv9^{100}\ \rm{mod}\ 19$$
+$$10^{100}\equiv9\cdot9^{3^{33}}\ \rm{mod}\ 19$$
+$$10^{100}\equiv9\cdot7^{3^{11}}\ \rm{mod}\ 19$$
+$$343^{11}\equiv1^{11}\ \rm{mod}\ 19$$
+$$10^{100}\equiv9\ \rm{mod}\ 19$$
+\item
+$$19\times11\ \rm{mod}\ 13=1$$
+$$13\times3\ \rm{mod}\ 19=1$$
+$$3\times19\times11+9\times13\times3=978$$
+$$978\equiv237\ \rm{mod}\ 247$$
+\end{enumerate}
+
+\section{}
+$$4^n\equiv7\ \rm{mod}\ 9$$
+$$4^n\equiv9\ \rm{mod}\ 11$$
+$$9\times5\ \rm{mod}\ 11=1$$
+$$11\times5\ \rm{mod}\ 9=1$$
+$$7\times11\times5+9\times9\times5=790$$
+$$790\equiv4^n\ \rm{mod}\ 99$$
+$$4^n=790+99k\ (k\in Z,k>-8)$$
+$$n=8\ \rm{is\ a\ solution\ to\ the\ equation.}$$
+
+\section{}
+$$45029^2<2027651281<45030^2$$
+$$\sqrt{(45030+11)^2-2027651281}=1020$$
+$$2027651281=(45041-1020)(45041+1020)=44021\times46061$$
+
+\section{}
+$$5^6\equiv1\ \rm{mod}\ 7$$
+$$5^{2003}\equiv5^{6^{333}}\times5^5\ \rm{mod}\ 7$$
+$$5^{2003}\equiv3\ \rm{mod}\ 7$$
+$$5^{10}\equiv1\ \rm{mod}\ 11$$
+$$5^{2003}\equiv5^{10^{200}}\times5^3\ \rm{mod}\ 11$$
+$$5^{2003}\equiv4\ \rm{mod}\ 7$$
+$$5^{12}\equiv1\ \rm{mod}\ 13$$
+$$5^{2003}\equiv5^{12^{166}}\times5^{11}\ \rm{mod}\ 13$$
+$$5^{2003}\equiv8\ \rm{mod}\ 13$$
+$$11\times13\times5\ \rm{mod}\ 7=1$$
+$$7\times13\times4\ \rm{mod}\ 11=1$$
+$$7\times11\times12\ \rm{mod}\ 13=1$$
+$$3\times11\times13\times5+4\times7\times13\times4+8\times7\times11\times12=10993$$
+$$10993\equiv983\ \rm{mod}\ 1001$$
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$(p-1)!\equiv -1\ \rm{mod} \ p$$
+$$(p-1)!\equiv p-1\ \rm{mod} \ p$$
+$$(p-2)!\equiv 1\ \rm{mod} \ p$$
+If $p$ is not a prime and $p>3$, then there must exist $k\in[2,p-2],k\in N$ and $k$ mod $p=0$,\\
+so $(p-2)!\equiv 0\ \rm{mod} \ p$, which reaches a contradiction.\\
+If $p=2$ or $p=3$, it is obvious that $(p-1)!\equiv -1\ \rm{mod} \ p$.
+\item
+$$2z=m-1$$
+$$z+1=m-z\equiv-z\ \rm{mod}\ m$$
+$$z+k=m-z-k+1\equiv-z-k+1\ \rm{mod}\ m\ ,\ k\in[1,z]$$
+$$(z+1)(z+2)\cdots2z\equiv(-1)^zz!\ \rm{mod}\ m$$
+$$z!(z+1)(z+2)\cdots2z\equiv(-1)^z(z!)^2\ \rm{mod}\ m$$
+$$(m-1)!\equiv(-1)^z(z!)^2\ \rm{mod}\ m$$
+\item
+When $p=4k+1,k\in N$,
+$$(p-1)!\equiv(-1)^{2k}(2k!)^2\ \rm{mod}\ p$$
+p is a prime when
+$$(2k!)^2\equiv-1\ \rm{mod}\ p$$
+When $p=4k+3,k\in N$,
+$$(p-1)!\equiv(-1)^{2k+1}(2k+1!)^2\ \rm{mod}\ p$$
+p is a prime when
+$$(2k+1!)^2\equiv1\ \rm{mod}\ p$$
+
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$1^2\equiv1\ \rm{mod}\ 11$$
+$$2^2\equiv4\ \rm{mod}\ 11$$
+$$3^2\equiv9\ \rm{mod}\ 11$$
+$$4^2\equiv5\ \rm{mod}\ 11$$
+$$5^2\equiv3\ \rm{mod}\ 11$$
+$$6^2\equiv3\ \rm{mod}\ 11$$
+$$7^2\equiv5\ \rm{mod}\ 11$$
+$$8^2\equiv9\ \rm{mod}\ 11$$
+$$9^2\equiv4\ \rm{mod}\ 11$$
+$$10^2\equiv1\ \rm{mod}\ 11$$
+So $1+11k,3+11k,4+11k,5+11k,9+11k,k\in N$ are quadratic residues of 11.
+\item
+Suppose $p=2k+1,k\in N$, $x=p-b,b\in[1,2k],b\in N$
+$$(p-b)^2=(p)^2-2pb+b^2$$
+$$(p-b)^2\equiv b^2\ \rm{mod}\ p$$
+$$b^2\equiv b^2\ \rm{mod}\ p$$
+Since p is an odd number, $p-b\neq b$,\\
+so $x=b$ and $x=p-b$ are two incongruent solutions if $b^2\equiv a\ \rm{mod}\ p$,\\
+or there is no solution if $b^2\not\equiv a\ \rm{mod}\ p$,
+\item
+According to ii), we can find that when $x=b$ or $x=p-b$, the value of $a$ is the same.\\
+Let $b\in[1,k]$, then $b<p-b$, and let $n\in[1,k-b],n\in N$,\\
+then for $b\in[1,k-1]$, if for $x=b$ and $x=b+n$, suppose the value of $a$ is the same,
+$$b^2\equiv(b+n)^2\ \rm{mod}\ p$$
+$$(2b+n)n\equiv0\ \rm{mod}\ p$$
+$$2b+n\leqslant2b+k-b=k+b<p$$
+$$n<p$$
+Since $p$ is a prime number, $(2b+n)n\not\equiv0\ \rm{mod}\ p$, which reaches a contradiction.\\
+So for any two $b$ the value of $a$ isn't the same, there are exactly $\frac{p-1}{2}$ quadratic residues of p among the integers 1,2,...,$p-1$.
+\item
+Let $c\in[1,k]$, then 
+$$x^2\equiv a\equiv b\equiv c^2\ \rm{mod}\ p$$
+If $a$ is a quadratic residue of $p$, we can find $c$ so that $x=c$ and $x=p-c$ are two incongruent solutions, and $b$ is also a quadratic residue of $p$, then
+$$\left(\frac{a}{p}\right)=\left(\frac{b}{p}\right)=1$$
+If $a$ isn't a quadratic residue of $p$, we can't find $c$ so that $x=c$ and $x=p-c$ are two incongruent solutions, and $b$ is also not a quadratic residue of $p$, then
+$$\left(\frac{a}{p}\right)=\left(\frac{b}{p}\right)=-1$$
+\item
+If $a$ is a quadratic residue of $p$, $(\frac{a}{p})=1$, then let $a=x^2+kp,k\in Z$
+$$a^{\frac{p-1}{2}}=(x^2+kp)^{\frac{p-1}{2}}=\sum_{i=0}^{\frac{p-1}{2}}(x^2)^i+(kp)^{\frac{p-1}{2}-i}\equiv(x^2)^{\frac{p-1}{2}}\ \rm{mod}\ p$$
+$$a^{\frac{p-1}{2}}\equiv x^{p-1}\ \rm{mod}\ p$$
+$$a^{\frac{p-1}{2}}\equiv 1\ \rm{mod}\ p$$
+$$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\ \rm{mod}\ p$$
+If $a$ isn't a quadratic residue of $p$, $(\frac{a}{p})=-1$
+$$a^{p-1}\equiv1\ \rm{mod}\ p$$
+$$a^{\frac{p-1}{2}}\equiv\pm1\ \rm{mod}\ p$$
+According to the above, we can easily get that if $a^{\frac{p-1}{2}}\equiv1\ \rm{mod}\ p$, $a$ is a quadratic residue of $p$, so $a^{\frac{p-1}{2}}\equiv-1\ \rm{mod}\ p$ here.
+$$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\ \rm{mod}\ p$$
+\item
+$$\left(\frac{ab}{p}\right)\equiv (ab)^{\frac{p-1}{2}}\equiv a^{\frac{p-1}{2}}\cdot b^{\frac{p-1}{2}}\equiv\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)\ \rm{mod}\ p$$
+Since $p$ is an odd prime $(p\geqslant3)$\\
+When $\left(\frac{ab}{p}\right)=1$, $\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=1+kp$, so 
+$$\left(\frac{ab}{p}\right)=\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=1$$
+When $\left(\frac{ab}{p}\right)=-1$, $\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=-1+kp$, so 
+$$\left(\frac{ab}{p}\right)=\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=-1$$
+\item
+If $a$ is a negative integer in v), we can simply get the same conclusion
+$$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\ \rm{mod}\ p$$
+When $p=4k+1,k\in N$,
+$$(-1)^{\frac{4k+1-1}{2}}=(-1)^{2k}=1$$
+$$\left(\frac{a}{p}\right)\equiv1\ \rm{mod}\ p$$
+Using the method in vi), we can find $\left(\frac{a}{p}\right)=1$, so -1 is a quadratic residue of $p$.\\
+When $p=4k+3,k\in N$,
+$$(-1)^{\frac{4k+3-1}{2}}=(-1)^{2k+1}=-1$$
+$$\left(\frac{a}{p}\right)\equiv-1\ \rm{mod}\ p$$
+Using the method in vi), we can find $\left(\frac{a}{p}\right)=-1$, so -1 isn't a quadratic residue of $p$.
+\item
+Let $x^2=35k+29,k\in N$
+$$x^2\equiv4\ \rm{mod}\ 5$$
+$$x^2\equiv1\ \rm{mod}\ 7$$
+\begin{equation*}
+\left\lbrace
+\begin{array}{cc}
+x\equiv&2\ \rm{mod}\ 5\\
+x\equiv&1\ \rm{mod}\ 7\\
+\end{array}
+\right.\ or\ 
+\left\lbrace
+\begin{array}{cc}
+x\equiv&2\ \rm{mod}\ 5\\
+x\equiv&-1\ \rm{mod}\ 7\\
+\end{array}
+\right.\ or\ 
+\left\lbrace
+\begin{array}{cc}
+x\equiv&-2\ \rm{mod}\ 5\\
+x\equiv&1\ \rm{mod}\ 7\\
+\end{array}
+\right.\ or\ 
+\left\lbrace
+\begin{array}{cc}
+x\equiv&-2\ \rm{mod}\ 5\\
+x\equiv&-1\ \rm{mod}\ 7\\
+\end{array}
+\right.
+\end{equation*}
+$$7\times3\ \rm{mod}\ 5=1$$
+$$5\times3\ \rm{mod}\ 7=1$$
+$$x_1=[(2\times7\times3+1\times5\times3)\ \rm{mod}\ 35]+35k=22+35k$$
+$$x_2=[(2\times7\times3-1\times5\times3)\ \rm{mod}\ 35]+35k=27+35k$$
+$$x_3=[(-2\times7\times3+1\times5\times3)\ \rm{mod}\ 35]+35k=8+35k$$
+$$x_4=[(-2\times7\times3-1\times5\times3)\ \rm{mod}\ 35]+35k=13+35k$$
+\end{enumerate}
+
+\end{document}
+

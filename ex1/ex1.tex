@@ -1,0 +1,216 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Exercise 1.\arabic{section}}
+\title{VE203 Assigment 1}
+\author{Liu Yihao 515370910207}
+\date{}
+\begin{document}
+\maketitle
+
+\section{}
+\begin{enumerate}[i)]
+\item \ 
+\begin{table}[!h]
+\centering
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+$a$ & $b$ & $\lnot(a\land b)$ & $\lnot a\lor\lnot b$\\
+\hline
+T & T & F & F \\
+T & F & T & T \\
+F & T & T & T \\
+F & F & T & T \\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$\lnot(a\land b)\Leftrightarrow\lnot a\lor\lnot b$}
+\end{minipage}
+\hfil
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+$a$ & $b$ & $\lnot(a\lor b)$ & $\lnot a\land\lnot b$\\
+\hline
+T & T & F & F \\
+T & F & F & F \\
+F & T & F & F \\
+F & F & T & T \\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$\lnot(a\lor b)\Leftrightarrow\lnot a\land\lnot b$}
+\end{minipage}
+
+\end{table}
+
+\item \ 
+Let $a$ be the proposition: a number is in the set $A$, and $b$ be the proposition: a number is in the set $B$, then
+$$(A\cap B)^C=\lnot(a\land b)\Leftrightarrow\lnot a\lor\lnot b=A^C\cup B^C$$
+$$(A\cup B)^C=\lnot(a\lor b)\Leftrightarrow\lnot a\land\lnot b=A^C\cap B^C$$
+
+\end{enumerate}
+
+\section{}
+
+Suppose the propositional variables are $x_1$,$x_2$,...,$x_n$, and then in any one combination of values, we can take the negative of $false$ and take conjunctions of the variables so that we will get a result $true$. Then if we take the disjunction of all of the combinations, as there is at least a $true$ (formed by the procedure above) in the compound proposition, it will be $true$.
+
+\section{}
+\begin{enumerate}[i)]
+\item
+According to the $disjunctive\ normal\ form$, a compound proposition can be formed by taking the disjunction of conjunctions of the variables or their negations, with one conjunction for each combination of values for which the compound proposition is $true$. So $\{\land,\lor,\lnot\}$ is a functionally complete collection of logical operators. 
+
+\item
+According to $de\ Morgan's\ rules$, $a\lor b\Leftrightarrow\lnot(\lnot a\land\lnot b)$\\
+So $\{\land,\lnot\}\Leftrightarrow\{\land,\lor,\lnot\}$, it is a functionally complete collection of logical operators. 
+
+\item
+According to $de\ Morgan's\ rules$, $a\land b\Leftrightarrow\lnot(\lnot a\lor\lnot b)$\\
+So $\{\lor,\lnot\}\Leftrightarrow\{\land,\lor,\lnot\}$, it is a functionally complete collection of logical operators. 
+
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$A\oplus B\equiv\lnot((A\land B)\lor(\lnot A\land\lnot B))$$
+\item
+$$A\lor B\equiv(A\oplus B)\lor(A\land B)$$
+\item
+$\{\land,\oplus,\lnot\}\Leftrightarrow\{\land,\lor,\lnot\}$, it is a functionally complete collection of logical operators. 
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[i)]
+\item \ 
+\begin{table}[!h]
+\centering
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+$A$ & $B$ & $A\ |\ B$\\
+\hline
+T & T & F \\
+T & F & T \\
+F & T & T \\
+F & F & T \\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$A\ |\ B$}
+\end{minipage}
+\hfil
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+$A$ & $B$ & $A\downarrow B$\\
+\hline
+T & T & F \\
+T & F & F \\
+F & T & F \\
+F & F & T \\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$A\downarrow B$}
+\end{minipage}
+
+\end{table}
+
+\item
+$$A\downarrow A\equiv \lnot(A\lor A)\equiv \lnot A$$
+$$(A\downarrow B)\downarrow(A\downarrow B)\equiv\lnot(A\downarrow B)
+\equiv\lnot(\lnot(A\lor B))\equiv A\lor B$$
+
+\item
+As $A\downarrow A\equiv\lnot A$ and $(A\downarrow B)\downarrow(A\downarrow B)\equiv A\lor B$,\\
+$\{\downarrow\}\Leftrightarrow\{\lor,\lnot\}$, it is a functionally complete collection of logical operators. 
+
+\item
+$$A\land B\equiv\lnot(\lnot A\lor\lnot B)\equiv\lnot A\downarrow\lnot B\equiv(A\downarrow A)\downarrow(B\downarrow B)$$
+\begin{align*}
+A\oplus B&\equiv\lnot((A\land B)\lor(\lnot A\land\lnot B))\\
+&\equiv(A\land B)\downarrow\lnot(A\lor B)\\
+&\equiv((A\downarrow A)\downarrow(B\downarrow B))\downarrow(A\downarrow B)
+\end{align*}
+
+\item
+$$A\ |\ A\equiv \lnot(A\land A)\equiv \lnot A$$
+$$(A\ |\ B)\ |\ (A\ |\ B)\equiv\lnot(A\ |\ B)\equiv A\land B$$
+$\{\ |\ \}\Leftrightarrow\{\land,\lnot\}$, it is a functionally complete collection of logical operators. 
+
+\end{enumerate}
+
+\newpage
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$X\Delta Y=\{x:(A(x)\lor B(x))\land\lnot(A(x)\land B(x))\}$$
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+$A(x)$ & $B(x)$ & $x\in X\Delta Y$ & $A(x)\oplus B(x)$\\
+\hline
+T & T & F & F\\
+T & F & T & T\\
+F & T & T & T\\
+F & F & F & F\\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$x\in A\Delta B\Leftrightarrow A(x)\oplus B(x)$}
+\end{table}
+
+\item
+$$(X\setminus Y)\cup(Y\setminus X)=\{x:(A(x)\land\lnot B(x))\lor(B(x)\land\lnot A(x))\}$$
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+$A(x)$ & $B(x)$ & $x\in X\Delta Y$ & $x\in(X\setminus Y)\cup(Y\setminus X)$\\
+\hline
+T & T & F & F\\
+T & F & T & T\\
+F & T & T & T\\
+F & F & F & F\\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$X\Delta Y=(X\setminus Y)\cup(Y\setminus X)$}
+\end{table}
+
+\item
+$$X^C\Delta Y^C=\{x:(\lnot A(x)\lor\lnot B(x))\land\lnot(\lnot A(x)\land \lnot B(x))\}$$
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+$A(x)$ & $B(x)$ & $x\in X^C\Delta Y^C$ & $x\in X\Delta Y$\\
+\hline
+T & T & F & F\\
+T & F & T & T\\
+F & T & T & T\\
+F & F & F & F\\
+\hline
+\end{tabular}
+\end{center}
+\caption*{$X^C\Delta Y^C=X\Delta Y$}
+\end{table}
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Exercise 2.\arabic{section}}
+\title{VE203 Assigment 2}
+\author{Liu Yihao 515370910207}
+\date{}
+\begin{document}
+\maketitle
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$n+(m+1):=\rm{succ}(n+m)$$
+\item
+$$2+2=succ(1)+succ(1)=succ(0)+1+succ(0)+1=1+1+1+1$$
+$$4=succ(3)=succ(2)+1=succ(1)+1+1=succ(0)+1+1+1=1+1+1+1$$
+So $2+2=4$ is proved.
+\item
+\begin{enumerate}[(I)]
+\item
+for $n=1,m=0$, $n+m=1$, $m+n=1$, so it is true.
+\item
+for $n=1,m=k\in N$, suppose $1+k=k+1$.\\
+Then for $n=1,m=k+1$,\\
+$m+n=k+1+1=1+k+1=n+m$, so it is true.
+\item
+for $n=k\in N,m\in N$, suppose $m+k=k+m$.\\
+Then for $n=k+1,m\in N$,\\
+$m+n=m+k+1=k+m+1=k+1+m=n+m$, so it is true.
+\end{enumerate}
+As (I) - (III) are true, so the statement is proved.
+\end{enumerate}
+
+
+\section{}
+\begin{enumerate}[(I)]
+\item
+for $n=1,2$, $a_1=3-2=1$, $a_2=6+2=8$, so it is true.
+\item
+for $n>2$, suppose it is true
+\begin{align*}
+a_{n+1}=a_n+2a_{n-1}&=3\cdot(2^{n-1}+2\cdot2^{n-2})+2(-1)^{n}+2\cdot2(-1)^{n-1}\\
+&=3\cdot2^n+2(-1)^{n+1}
+\end{align*}
+So it is true.
+\end{enumerate}
+As (I) and (II) are true, so the statement is proved.
+
+\section{}
+
+Suppose the Well-Order-Principle is false, then there exist a non-empty set $S\subset N$ which doesn't have a least element.
+\begin{enumerate}[(I)]
+\item
+If the set have element 0, then 0 will be a least element. So 0 is not in the set.
+\item
+Suppose the set have element n, and doesn't have elements in $[0,n)$, then n will be a least element and n is not in the set.\\
+Further, we can find that $n+1$ is not in the set.\\
+\end{enumerate}
+Therefore, all natural numbers are not in the set, which is contradicted with the condition that it is a non-empty set. So the Well-Order-Principle is true.
+
+\section{}
+Suppose $(1+x)^n\geqslant nx+1$
+\begin{enumerate}[(I)]
+\item
+for $n=0$, $(1+x)^n=1\geqslant 1=nx+1$, so it is true.
+\item
+for $n>0$, suppose it is true,
+$$(1+x)^{n+1}=(1+x)(1+x)^n\geqslant(1+x)(nx+1)=nx^2+nx+x+1$$
+$$(n+1)x+1=nx+x+1$$
+Since $x>-1$,
+$$nx^2+nx+x+1>=nx+x+1$$
+So it is true.
+\end{enumerate}
+As (I) and (II) are true, so $(1+x)^n\geqslant nx+1$ is proved.\\
+And we can simply find that $(1+x)^n\geqslant nx$ is true.
+
+\section{}
+\begin{enumerate}[(I)]
+\item
+for $n=1$, $1=2^0$, so it is true.
+\item
+Suppose that for $n=1,2,...,n$, the statement is true,\\
+then for $n+1$, we should consider whether it is even or odd.\\
+When it is even, $\frac{n+1}{2}\in[1,n]\cap N$, since $\frac{n+1}{2}$ can be written as distinct powers of 2, we can write $n+1$ by adding each of the power by 1.\\
+When it is odd, $\frac{n}{2}\in[1,n]\cap N$, since $\frac{n}{2}$ can be written as distinct powers of 2, we can write $n$ by adding each of the power by 1. Then we can write $n+1$ by adding $2^0$.\\
+So it is true.
+\end{enumerate}
+As (I) and (II) are true, so the statement is proved.
+
+
+
+\section{}
+Suppose $(a,b)\in S$ implies $5\ |\ a+b$
+\begin{enumerate}[(I)]
+\item
+for $(0,0)\in S$, $5\ |\ 0+0$, so it is true.
+\item
+for $(a,b)\in S$, suppose $5\ |\ a+b$, and $(a,b)\in S$ implies $((a+2,b+3)\in S)\land((a+3,b+2)\in S)$, which means for $(a+2,b+3)$ and $(a+3,b+2)$, $a+2+b+3=a+3+b+2=a+b+5$. Since $5\ |\ a+b$, it is clear that $5\ |\ a+b+5$\\
+So it is true.
+\end{enumerate}
+As (I) and (II) are true, $(a,b)\in S$ implies $5\ |\ a+b$ is proved.
+
+\section{}
+
+\begin{table}[!h]
+\centering
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+ & reflexive & symmetric & transitive\\
+\hline
+$x+y=0$			& F & T & F \\
+$2|(x-y)$		& T & T & T \\
+$xy=0$			& F & T & F \\
+$x=1\ or\ y=1$ 	& F & T & F \\
+$x=\pm y$		& T & T & T \\
+$x=2y$			& F & F & F \\
+$xy\geqslant0$	& F & T & F \\
+$x=1$			& F & F & T \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\end{document}

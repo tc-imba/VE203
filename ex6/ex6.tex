@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{indentfirst}
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Exercise 6.\arabic{section}}
+\title{VE203 Assignment 6}
+\author{Liu Yihao 515370910207}
+\date{}
+\begin{document}
+\maketitle
+
+\section{}
+\begin{enumerate}[i)]
+\item
+\begin{align*}
+f(n)&=af\left(\frac{n}{b}\right)+cn^d\\
+&=a\left[af\left(\frac{n}{b^2}\right)+c\left(\frac{n}{b}\right)^d\right]+cn^d\\
+&=a^2f\left(\frac{n}{b^2}\right)+ac\left(\frac{n}{b}\right)^d+cn^d\\
+&=...\\
+&=a^{\log_bn}f(1)+\sum_{i=1}^{log_bn}cn^d\left(\frac{a}{b^d}\right)^{i-1}\\
+&=n^{\log_ba}f(1)+cn^d\sum_{i=1}^{\log_bn}\\
+&=f(1)n^d+cn^d\log_bn
+\end{align*}
+\item
+$$\lim_{n\to\infty}\frac{f(1)n^d+cn^d\log_bn}{n^dlogn}
+=\lim_{n\to\infty}c\frac{\log_bn}{\log_bn/\log_b10}=c\log_b10=C$$
+\item
+\begin{align*}
+f(n)&=a^{\log_bn}f(1)+\sum_{i=1}^{log_bn}cn^d\left(\frac{a}{b^d}\right)^{i-1}\\
+&=n^{\log_ba}f(1)+cn^d\frac{1-\left(\frac{a}{b^d}\right)^{\log_bn}}{1-\frac{a}{b^d}}\\
+&=n^{\log_ba}f(1)+cn^d\frac{b^d-b^d\left(\frac{a}{b^d}\right)^{\log_bn}}{b^d-a}\\
+&=n^{\log_ba}f(1)+\frac{b^dc}{b^d-a}n^d+cn^d\frac{b^d\frac{a^{\log_bn}}{n^d}}{a-b^d}\\
+&=\frac{b^dc}{b^d-a}n^d+\left[f(1)+\frac{b^dc}{a-b^d}\right]n^{\log_ba}
+\end{align*}
+\item
+$$a<b^d\Longrightarrow\log_ba<d$$
+$$\lim_{n\to\infty}\frac{C_1n^d+C_2n^{\log_ba}}{n^d}=C_1=C$$
+\item
+$$a>b^d\Longrightarrow\log_ba>d$$
+$$\lim_{n\to\infty}\frac{C_1n^d+C_2n^{\log_ba}}{n^{\log_ba}}=C_2=C$$
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[i)]
+\item
+$$f(n)=f(n/2)+1$$
+\item
+$$O(\log n)$$
+\end{enumerate}
+
+\section{}
+
+We can simply find that in a bit string, whenever a series of $''0''$ is switched to $''1''$, we get a $''01''$ string, and whenever a series of $''1''$ is switched to $''0''$, we get a $''10''$ string. Then we only need to consider the first and last bit of the string.\\
+
+When the first and last bit is the same (both $''0''$ or both $''1''$), the number of switching from $''0''$ to $''1''$ and $''1''$ to $''0''$ is the same, so $''10''$ and $''01''$ occurs the same time.\\
+
+When the first bit is $''0''$ and the last bit is $''1''$, 
+the number of switching from $''0''$ to $''1''$ is one more than that of $''1''$ to $''0''$, so $''01''$ occurs one more time than $''10''$.\\
+
+Similarly, when the first bit is $''1''$ and the last bit is $''0''$, $''10''$ occurs one more time than $''01''$.\\
+
+In conclusion, in a bit string, the string 01 occurs at most one more time than the string 10.
+
+\section{}
+\begin{enumerate}[i)]
+\item
+When $q_{n-1}-1\neq0$,
+$$(p_n,q_n)=(p_{n-1}+1,q_{n-1}-1)$$
+When $q_{n-1}-1=0$,
+$$(p_n,q_n)=(1,p_{n-1}+1)$$
+Forming them together, we get
+$$(p_n,q_n)=((p_{n-1}+1)\ \rm{mod}\ p_{n-1},q_{n-1}-1+[1-u(q_{n-1}-1)](p_{n-1}+1))$$
+\item
+For $p=1$ and $q=1$, $(p,q)=(p_1,q_1)$\\
+
+For $p=1$ and $q=k,k\in N^+$, suppose we can find $(p,q)=(p_m,q_m)$\\
+Then for $p=1$ and $q=k+1$, we can also find $(p,q)=(p_{m+k},q_{m+k})$ according to the recurrence relation $(p_n,q_n)=(1,p_{n-1}+1)$\\
+So for $p=1$ and $q\in N^+$, we can find $(p,q)=(p_n,q_n)$\\
+
+For $p=k,k<q,k\in N^+$ and $q\in N^+$, suppose we can find $(p,q)=(p_m,q_m)$ for all of $q$\\
+Then for $p=k+1$, we can also find $(p,q)=(p_{m+k+q},q_{m+k+q})$ according to the recurrence relation $(p_n,q_n)=(p_{n-1}+1,q_{n-1}-1)$ and $(p_n,q_n)=(1,p_{n-1}+1)$\\
+So for $p<q,p\in N^+$ and $q\in N^+$, we can find $(p,q)=(p_n,q_n)$\\
+
+\item
+For $n=1$ we can find $\phi(p_1/q_1)=1$, it is true.\\
+For $n=k$, suppose that $\phi(p_n/q_n)=n$\\
+For $n=k+1$, we should discuss it in two situations\\
+Firstly, for $q_n=1$, $p_{n+1}=1$, $q_{n+1}=p_n+1$
+\begin{align*}
+\phi\left(\frac{p_{n+1}}{q_{n+1}}\right)
+&=\frac{(p_{n+1}+q_{n+1}-1)(p_{n+1}+q_{n+1}-2)}{2}+p_{n+1}\\
+&=\frac{(q_n+p_n)(q_n+p_n-1)}{2}+1\\
+&=\frac{(q_n+p_n-2)(q_n+p_n-1)}{2}+1+q_n+p_n-1\\
+&=\frac{(p_n+q_n-1)(p_n+q_n-2)}{2}+p_n+1\\
+&=n+1
+\end{align*}
+Secondly, for $q_n>1$, $p_{n+1}=p_n+1$, $q_{n+1}=q_n-1$
+\begin{align*}
+\phi\left(\frac{p_{n+1}}{q_{n+1}}\right)
+&=\frac{(p_{n+1}+q_{n+1}-1)(p_{n+1}+q_{n+1}-2)}{2}+p_{n+1}\\
+&=\frac{(p_n+q_n-1)(p_n+q_n-2)}{2}+p_n+1\\
+&=n+1
+\end{align*}
+So it is proved.
+\item
+Since $\phi$ is a function from a set $p/q$ to a set $n$, it is surjective.\\
+Since it can be reversed as is proved in part v), it is injective.\\
+So it is bijective.
+
+\item
+When $k\in N^+$, suppose
+$$\frac{k(k+1)}{2}<n\leqslant\frac{(k+1)(k+2)}{2}$$
+where
+$$\frac{(k+1)(k+2)}{2}-\frac{k(k+1)}{2}=k+1$$
+and
+$$k^2+k-2n<0$$
+$$k\in\left(\frac{-1-\sqrt{1+8n}}{2},\frac{-1+\sqrt{1+8n}}{2}\right)$$
+The maximum integer $k$ is what we need here, so
+$$k=\left[\frac{-1+\sqrt{1+8n}}{2}\right]$$
+According to the recurrence we find
+$$p=n-\frac{k(k+1)}{2}\quad q=k+2-p$$
+So we find the inverse $\phi^{-1}$
+$$\phi^{-1}(n)=\frac{n-\frac{k(k+1)}{2}}{k+2-n+\frac{k(k+1)}{2}}\ \rm{where}\ k=\left[\frac{-1+\sqrt{1+8n}}{2}\right]$$
+
+\item
+$$\phi(p,q)=\frac{(p+q)(p+q-1)}{2}+p$$
+
+\item
+$$\phi(p,q)=(|p|+|q|)(|p|+|q|-1)+2p-u(pq)$$
+\end{enumerate}
+
+\section{}
+
+\section{}
+Since card $M=$ card $N$, the number of elements in set $M$ and $N$ is the same.\\
+
+Since $M\in N$, if there is an element which is in N but is not in M, then the number of elements in $M$ is more than that in $N$, which leads to a contradiction.\\
+
+So there isn't any element which is in N but is not in M, which means $M=N$
+
+\section{}
+If $f:M\to N$ is surjective, according to theorem 2.4.21, if card $M\neq$ card $N$, $f$ is injective.\\
+
+If $f:M\to N$ is not surjective, then we can find a $f':M\to N'$ which is surjective so that card $N'<$ card $N$, so we can use the theorem again. If card $M\neq$ card $N'$, $f'$ is injective. So $f$ is also injective.
+
+So it is proved.
+\end{document}
